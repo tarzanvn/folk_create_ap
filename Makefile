@@ -7,6 +7,7 @@ all:
 	@echo "Run 'make uninstall' for uninstallation."
 
 install:
+	sudo pacman -S --needed iw dnsmasq hostapd
 	install -Dm755 create_ap $(DESTDIR)$(BINDIR)/create_ap
 	install -Dm644 create_ap.conf $(DESTDIR)/etc/create_ap.conf
 	[ ! -d /lib/systemd/system ] || install -Dm644 create_ap.service $(DESTDIR)$(PREFIX)/lib/systemd/system/create_ap.service
